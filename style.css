@@ -1,0 +1,61 @@
+* {
+    font-size: 18px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    color:rgb(94, 92, 92);
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    padding-inline-start: 40px;
+    margin-top: 5px;
+}
+
+li {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+div {
+    display: grid;
+    grid-template-columns: 33% auto;
+    grid-template-rows: none;
+}
+
+section {
+    padding: 1rem;
+    margin: 1rem;
+    color: rgb(94, 92, 92);
+    min-height: 100px;
+    border-radius: 4px;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.todosection {
+    background-color: lightyellow;
+}
+
+.donesection {
+    background-color: lightgreen;
+}
+
+.deletesection {
+    background-color: lightpink;
+}
