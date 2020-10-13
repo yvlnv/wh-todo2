@@ -31,23 +31,15 @@ const view = (state) => `
 `
 // all update func return a state
 const update = {
-    add: async (state, form) => {
+    add: (state, form) => {
         // access data in a form
         const data = new FormData(form)
-        const task = new task(data.get('task'))
-        const req = new XMLHttpRequest()
-        const tasks = await getch
+        const task = {
+            id: window.crypto.getRandomValues(new Uint8Array(3)).join(""),
+            text: data.get('task'),
+            status: 0
+        }
         state.todotasks.push(task)
-
-        const tasks = await fetch('/tasks', {
-            method: 'POST',
-            header: {
-
-            },
-            body: JSON.stringify(task)
-
-        }).then(res => res.json())
-        state.todotasks = tasks
         return state
     },
     dragFromToDoTask: (state, event) => {
@@ -71,24 +63,7 @@ const update = {
         const index = state.donetasks.findIndex(task => task.id == id)
         state.donetasks.splice(index, 1)
         return state
-    },
-    getTasks: async (state) => {
-        const req = new XMLHttpRequest()
-        req.addEventListener('load', function () {
-            // this.response
-            app.run('addTasks', JSON.parse(this.response))
-        })
-        req.open('GET', '/tasks')
-        req.send()
-        state.todotasks = await fetch('tasks').then(res => res.json())
-        return state
-    },
-    addTasks: (state, tasks) => {
-        // spread operator
-        state.todotasks = [...state.todotasks, ...todotasks]
-        return state
     }
 }
 
 app.start('todoApp', state, view, update)
-app.run('getTasks')
